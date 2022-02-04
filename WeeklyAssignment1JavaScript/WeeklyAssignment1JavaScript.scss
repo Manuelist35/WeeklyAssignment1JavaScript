@@ -1,0 +1,55 @@
+body {
+    background-color: brown;
+    .container {
+        margin-top: 20px;
+        border: 10px solid yellow;
+        width: 80%;
+        height: 80vh;
+        display: flex;
+        text-align: center;
+        background-color: rgb(230, 149, 43);
+        /*p{
+            font-size: 1.5rem;
+            font-weight: lighter;
+        }
+        #author {
+            margin-top: 15px;
+            font-size: 2rem;
+        }*/
+        .quotes {
+            width: 50%;
+            height: 30%;
+            margin: auto;
+            display: flex;
+            flex-direction: column; // here we are telling the computer how we want our container to be displayed wich is a flexbox wich it can be behave either as a row or as a column
+            justify-content: center; // here we are using this property in order to display our content in the center of the main axis of our container wich in this case is the "Y" center 
+            align-items: center; // here we used this property in order to display our quote in the center of the "X" axis of our web browser
+            padding: 0 50px;
+            color: rgb(65, 23, 23);
+            p{
+                font-size: 1.5rem;
+                font-weight: lighter;
+            }
+            #author {
+                margin-top: 15px;
+                font-size: 2rem;
+            }
+
+
+        
+    
+        }
+    }
+    .button {
+        text-align: center;
+        padding-top: 30px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .quotes p, .quotes h3{
+        font-size: 1rem;
+    }
+}
+
