@@ -1,0 +1,29 @@
+{
+    "headers": [
+        "USER ID",
+        "Name",
+        "Occupation",
+        "Age"
+    ],
+    "rows": [
+      [
+       20012,
+       "Dom",
+       "Web Developer",
+       34
+      ],
+      [
+       77943,
+       "Robert",
+       "Gardener",
+       24
+      ],
+      [
+       15471,
+       "Anne",
+       "Accountant",
+       41
+      ]
+
+    ]
+}
