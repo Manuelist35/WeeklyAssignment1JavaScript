@@ -51,10 +51,11 @@ body .container .current-info .date-container .date {
 
 body .container .current-info .place-container {
   text-align: end;
+  margin-top: 15px;
 }
 
 body .container .current-info .place-container .time-zone {
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 100;
 }
 
@@ -164,5 +165,35 @@ body .future-forecast .weather-forecast .weather-forecast-item .day {
 
 body .future-forecast .weather-forecast .weather-forecast-item .temp {
   font-weight: 100;
+}
+
+@media only screen and (max-width: 730px) {
+  .future-forecast {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    -webkit-box-align: none;
+        -ms-flex-align: none;
+            align-items: none;
+    overflow-y: scroll;
+  }
+  .future-forecast .today {
+    font-size: 23px;
+  }
+  .future-forecast .temp {
+    font-size: 23px;
+  }
+  .container {
+    padding: 20px;
+  }
+  .date-container .time {
+    font-size: 50px;
+  }
+  .date-container #am-pm {
+    font-size: 20px;
+  }
+  .date-container .date {
+    font-size: 20px;
+  }
 }
 /*# sourceMappingURL=WeatherApp.css.map */

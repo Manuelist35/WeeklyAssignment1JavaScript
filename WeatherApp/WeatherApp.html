@@ -11,6 +11,7 @@
 <body>
 
     <div class="container">
+<!---------------------------------------------   Current Info Section   ------------------------------------------------------------>       
         <div class="current-info">
 
             <div class="date-container">
@@ -22,26 +23,17 @@
                 </div>
 
                 <div class="others" id="current-weather-items">
-                    <div class="weather-item">
-                        <div>Humidity</div>
-                        <div>92.5%</div>
-                    </div>
-                    <div class="weather-item">
-                        <div>Pressure</div>
-                        <div>121</div>
-                    </div>
-                    <div class="weather-item">
-                        <div>Wind Speed</div>
-                        <div>222</div>
-                    </div>
+                    
                 </div>
             </div>
+<!---------------------------------------------   Country Section   ------------------------------------------------------------>
             <div class="place-container">
                  <div class="time-zone" id="time-zone">Asia/Kolkata</div>
                  <div id="country" class="country">IN</div>
             </div>
         </div>
     </div>
+<!---------------------------------------------   Future forecast Section   ------------------------------------------------------------>  
     <div class="future-forecast">
         <div class="today" id="current-temp">
             <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="weather-icon" class="w-icon">
@@ -84,6 +76,8 @@
             </div>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="WeatherApp.js"></script>
 </body>
 </html>
