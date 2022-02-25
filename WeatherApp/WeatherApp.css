@@ -196,4 +196,22 @@ body .future-forecast .weather-forecast .weather-forecast-item .temp {
     font-size: 20px;
   }
 }
+
+@media only screen and (max-width: 1000px) {
+  future-forecast {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    -webkit-box-align: none;
+        -ms-flex-align: none;
+            align-items: none;
+    overflow-y: scroll;
+  }
+  future-forecast .today {
+    font-size: 23px;
+  }
+  future-forecast .temp {
+    font-size: 23px;
+  }
+}
 /*# sourceMappingURL=WeatherApp.css.map */

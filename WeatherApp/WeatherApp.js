@@ -21,7 +21,7 @@ setInterval(() =>{
     const minutes = time.getMinutes();
     const ampm = hour >=12 ? 'PM' : 'AM'
 
-    timeEl.innerHTML = `${hoursIn12HrFormat}:${minutes} <span id="am-pm">${ampm}</span>`
+    timeEl.innerHTML = `${hoursIn12HrFormat < 10? '0'+hoursIn12HrFormat :  hoursIn12HrFormat}:${minutes < 10? '0'+minutes: minutes} <span id="am-pm">${ampm}</span>`
 
     dateEl.innerHTML = `${days[day]}, ${date} ${months[month]}`
 
@@ -43,6 +43,9 @@ function getWeatherData (){ // Here we are defining this function which will all
 
 function showWeatherData (data){
     let {humidity, pressure, sunrise, sunset, wind_speed} = data.current;
+
+    timeZone.innerHTML = data.timezone;
+    countryEl.innerHTML = data.lat + 'N ' + data.lon+'E'
 
     currentWeatherItemsEl.innerHTML =
     `<div class="weather-item">
@@ -67,4 +70,32 @@ function showWeatherData (data){
     </div>
     
     `;
+
+    let otherDayForecast = ''
+    data.daily.forEach((day, idx)=>{
+        if(idx == 0){
+            currentTemperature.innerHTML = `
+            <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@4x.png" alt="weather-icon" class="w-icon">
+            <div class="others">
+                <div class="day">${window.moment(day.dt*1000).format('ddd')}</div>
+                <div class="temp">Night - ${day.temp.night}&#176; C</div>
+                <div class="temp">Day - ${day.temp.day}&#176; C</div> 
+            </div> 
+            
+            `
+        }else{
+            otherDayForecast += `
+            <div class="weather-forecast-item">
+                <div class="day">${window.moment(day.dt*1000).format('ddd')}</div>
+                <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather-icon" class="w-icon">
+                <div class="temp">Night - ${day.temp.night}&#176; C </div>
+                <div class="temp">Day - ${day.temp.day}&#176; C </div>   
+            </div> 
+            
+            `
+        }
+     })
+
+
+    weatherForecastEl.innerHTML = otherDayForecast;
 }
