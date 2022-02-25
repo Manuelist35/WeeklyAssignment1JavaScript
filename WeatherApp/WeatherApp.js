@@ -99,3 +99,30 @@ function showWeatherData (data){
 
     weatherForecastEl.innerHTML = otherDayForecast;
 }
+
+const searchByCityName = () => {
+    const city = document.getElementById('CityName').value;
+    const URL = `api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`;
+    
+    if(city === ""){
+        alert("Not results found, please try again")
+    } else {
+        fetch(URL).then(resp =>{
+            const status = resp.status;
+            console.log(status)
+           if(status !== 200){
+               alert(`Sorry, something went wrong, try again error:${status}`) // I added this line for to let to know the user why the app didn't give back any response in case the fetch falis
+               console.log(`Ops! Something is wrong ${status}`)
+           }
+           //resp.json().then(repository => {
+            //console.log(repository)
+            //})
+        })
+    }
+}
+
+const button = document.getElementById('searchCity');
+button.addEventListener('click',(e)=> {
+    e.preventDefault();
+    searchByCityName();
+})

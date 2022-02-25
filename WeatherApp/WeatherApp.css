@@ -64,6 +64,10 @@ body .container .current-info .place-container .country {
   font-weight: 700;
 }
 
+body .container .current-info .place-container .city-by-location {
+  padding-top: 20px;
+}
+
 body .container .current-info .others {
   display: -webkit-box;
   display: -ms-flexbox;
