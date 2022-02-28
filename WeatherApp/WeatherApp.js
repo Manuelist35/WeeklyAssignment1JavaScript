@@ -30,18 +30,18 @@ setInterval(() =>{
 
 getWeatherData()
 function getWeatherData (){ // Here we are defining this function which will allow us to acces to the Geolocation of our computer 
-    navigator.geolocation.getCurrentPosition((success) =>{
+    navigator.geolocation.getCurrentPosition((success) =>{ // The Geolocation.getCurrentPosition() method is used to get the current position of the device, so in that way we can use that info for later get the data that we want of the city that we are in 
         
         let {latitude, longitude } = success.coords;
 
         fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=${API_KEY}`).then(res => res.json()).then(data =>{
             console.log(data)
-            showWeatherData(data);
+            showWeatherDataDefault(data);
         })
     })
 }
 
-function showWeatherData (data){
+function showWeatherDataDefault (data){
     let {humidity, pressure, sunrise, sunset, wind_speed} = data.current;
 
     timeZone.innerHTML = data.timezone;
@@ -102,7 +102,8 @@ function showWeatherData (data){
 
 const searchByCityName = () => {
     const city = document.getElementById('CityName').value;
-    const URL = `api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`;
+    console.log(city);
+    const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`;
     
     if(city === ""){
         alert("Not results found, please try again")
@@ -114,15 +115,94 @@ const searchByCityName = () => {
                alert(`Sorry, something went wrong, try again error:${status}`) // I added this line for to let to know the user why the app didn't give back any response in case the fetch falis
                console.log(`Ops! Something is wrong ${status}`)
            }
-           //resp.json().then(repository => {
-            //console.log(repository)
-            //})
+            resp.json().then(CityWeather => {
+                console.log(CityWeather)
+                let coord = CityWeather.coord;
+                //console.log(coord)
+                let lat = coord.lat;
+                let long = coord.lon;
+                //console.log(lat);
+                //console.log(long);
+                getWeatherByCityNameData()
+                function getWeatherByCityNameData(){
+                    let lati = lat;
+                    let longi = long;
+                    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lati}&lon=${longi}&exclude=hourly,minutely&units=metric&appid=${API_KEY}`).then(resp => resp.json()).then(datacity =>{
+                        console.log(datacity)
+                        showWeatherDataByName(datacity);
+                    })
+                }
+            })
         })
     }
 }
+
+function showWeatherDataByName (datacity){
+    let {humidity, pressure, sunrise, sunset, wind_speed} = datacity.current;
+
+    timeZone.innerHTML = datacity.timezone;
+    countryEl.innerHTML = datacity.lat + 'N ' + datacity.lon+'E'
+
+    currentWeatherItemsEl.innerHTML =
+    `<div class="weather-item">
+        <div>Humidity</div>
+        <div>${humidity}%</div>
+    </div>
+    <div class="weather-item">
+        <div>Pressure</div>
+        <div>${pressure}</div>
+    </div>
+    <div class="weather-item">
+        <div>Wind Speed</div>
+        <div>${wind_speed}</div>
+    </div>
+    <div class="weather-item">
+        <div>Sunrise</div>
+        <div>${window.moment(sunrise*1000).format('HH:mm a')}</div>
+    </div>
+    <div class="weather-item">
+        <div>Sunset</div>
+        <div>${window.moment(sunset*1000).format('HH:mm a')}</div>
+    </div>
+    
+    `;
+
+    let otherDayForecast = ''
+    datacity.daily.forEach((day, idx)=>{
+        if(idx == 0){
+            currentTemperature.innerHTML = `
+            <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@4x.png" alt="weather-icon" class="w-icon">
+            <div class="others">
+                <div class="day">${window.moment(day.dt*1000).format('ddd')}</div>
+                <div class="temp">Night - ${day.temp.night}&#176; C</div>
+                <div class="temp">Day - ${day.temp.day}&#176; C</div> 
+            </div> 
+            
+            `
+        }else{
+            otherDayForecast += `
+            <div class="weather-forecast-item">
+                <div class="day">${window.moment(day.dt*1000).format('ddd')}</div>
+                <img src="http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png" alt="weather-icon" class="w-icon">
+                <div class="temp">Night - ${day.temp.night}&#176; C </div>
+                <div class="temp">Day - ${day.temp.day}&#176; C </div>   
+            </div> 
+            
+            `
+        }
+     })
+
+
+    weatherForecastEl.innerHTML = otherDayForecast;
+}
+
+
+
 
 const button = document.getElementById('searchCity');
 button.addEventListener('click',(e)=> {
     e.preventDefault();
     searchByCityName();
+    showWeatherDataByName();
+
 })
