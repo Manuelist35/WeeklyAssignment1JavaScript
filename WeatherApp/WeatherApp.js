@@ -42,7 +42,7 @@ function getWeatherData (){ // Here we are defining this function which will all
 }
 
 function showWeatherDataDefault (data){
-    let {humidity, pressure, sunrise, sunset, wind_speed} = data.current;
+    let {humidity, temp, feels_like, pressure, sunrise, sunset, wind_speed} = data.current;
 
     timeZone.innerHTML = data.timezone;
     countryEl.innerHTML = data.lat + 'N ' + data.lon+'E'
@@ -51,6 +51,14 @@ function showWeatherDataDefault (data){
     `<div class="weather-item">
         <div>Humidity</div>
         <div>${humidity}%</div>
+    </div>
+    <div class="weather-item">
+       <div>Temperature</div>
+       <div>${temp}&#176; C</div>
+    </div>
+    <div class="weather-item">
+       <div>Feels like</div>
+       <div>${feels_like}&#176; C</div>
     </div>
     <div class="weather-item">
         <div>Pressure</div>
@@ -138,7 +146,7 @@ const searchByCityName = () => {
 }
 
 function showWeatherDataByName (datacity){
-    let {humidity, pressure, sunrise, sunset, wind_speed} = datacity.current;
+    let {humidity, temp, feels_like, pressure, sunrise, sunset, wind_speed} = datacity.current;
 
     timeZone.innerHTML = datacity.timezone;
     countryEl.innerHTML = datacity.lat + 'N ' + datacity.lon+'E'
@@ -147,6 +155,14 @@ function showWeatherDataByName (datacity){
     `<div class="weather-item">
         <div>Humidity</div>
         <div>${humidity}%</div>
+    </div>
+    <div class="weather-item">
+        <div>Temperature</div>
+        <div>${temp}&#176; C</div>
+    </div>
+    <div class="weather-item">
+        <div>Feels like</div>
+        <div>${feels_like}&#176; C</div>
     </div>
     <div class="weather-item">
         <div>Pressure</div>
