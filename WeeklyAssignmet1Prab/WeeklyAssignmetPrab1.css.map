@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,IAAI,CAAC;EACD,gBAAgB,EAAE,YAAY;CAYjC;;AAbD,AAGQ,IAHJ,CAEA,UAAU,CACN,EAAE,CAAA;EACE,UAAU,EAAE,IAAI;EAChB,UAAU,EAAE,IAAI;EAChB,MAAM,EAAE,cAAc;CAKzB;;AAXT,AAOY,IAPR,CAEA,UAAU,CACN,EAAE,CAIE,MAAM,CAAA;EACF,gBAAgB,EAAE,IAAI;EACtB,YAAY,EAAE,IAAI;CACrB",
+    "sources": [
+        "WeeklyAssignmetPrab1.scss"
+    ],
+    "names": [],
+    "file": "WeeklyAssignmetPrab1.css"
+}
