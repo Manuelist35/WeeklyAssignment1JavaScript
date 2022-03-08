@@ -29,5 +29,13 @@ function loginFunc(e){
     var user = localStorage.getItem(username); //the getItem() method of the Storage interface, when passed a key name, will return that key's value, or null if the key does not exist, in the given Storage object.
     var data = JSON.parse(user);
     console.log(data);
+
+    if(user == null){ // in this statements we are declaring the outputs that we will expect in case the user doesn't match the data in the inputs fields with the ones that are stored in the local data 
+        result.innerHTML = 'wrong username';
+    } else if(username == data.username && pass == data.password){
+        result.innerHTML = 'logged in';
+    }else{
+        result.innerHTML = 'wrong pasword';
+    }
 }
 
