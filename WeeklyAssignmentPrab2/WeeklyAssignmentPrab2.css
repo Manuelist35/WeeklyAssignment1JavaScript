@@ -4,14 +4,21 @@ html {
 
 html .container {
   background-color: antiquewhite;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 html .container form {
   margin-top: 200px;
   border: 1px solid rebeccapurple;
   text-align: center;
-  margin-left: 550px;
-  margin-right: 550px;
   background-color: aquamarine;
 }
 /*# sourceMappingURL=WeeklyAssignmentPrab2.css.map */

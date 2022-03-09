@@ -19,8 +19,11 @@ console.log('user added')
 
 }
 
-function loginFunc(e){
+function loginFunc(e, RedirectHomePage){
     event.preventDefault();
+    function RedirectHomePage() {
+        window.location = "file:///Users/SantiagoTenango/Desktop/Git/WeeklyAssignmentPrab2/WeeklyAssignmentPrab2MainPage.html";
+    }
     
     var username = document.getElementById('username').value;
     var pass = document.getElementById('password').value;
@@ -34,8 +37,11 @@ function loginFunc(e){
         result.innerHTML = 'wrong username';
     } else if(username == data.username && pass == data.password){
         result.innerHTML = 'logged in';
+        RedirectHomePage();
     }else{
         result.innerHTML = 'wrong pasword';
     }
+    
 }
+
 

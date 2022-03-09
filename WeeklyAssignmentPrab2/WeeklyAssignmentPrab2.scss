@@ -2,12 +2,13 @@ html{
     background-color: antiquewhite;
     .container{
         background-color: antiquewhite;
+        display: flex;
+        align-items: center; ////here we are using this property to center an element vertically with Flexbox.
+        justify-content: center; //here we are using this property to center an element horizontally with Flexbox.
         form{
             margin-top: 200px;
             border: 1px solid rebeccapurple;
             text-align: center;
-            margin-left: 550px;
-            margin-right: 550px;
             background-color: aquamarine;
         
         }
