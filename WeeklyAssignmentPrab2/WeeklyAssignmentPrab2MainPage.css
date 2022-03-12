@@ -79,6 +79,17 @@ form {
   opacity: 0.7;
 }
 
+.btn.delete {
+  opacity: 0.7;
+  font-size: 1rem;
+  -webkit-transition: color 250ms ease-in;
+  transition: color 250ms ease-in;
+}
+
+.btn.delete:hover {
+  color: var(--clr-warning);
+}
+
 .new {
   background: transparent;
   border: 0;
@@ -86,6 +97,7 @@ form {
   border-bottom: 1px solid currentColor;
   font-size: inherit;
   outline: none;
+  padding: 0.25em;
   -webkit-transition: border-bottom 150ms ease-in;
   transition: border-bottom 150ms ease-in;
   -webkit-box-ordinal-group: 3;
@@ -153,6 +165,11 @@ form {
 
 .todo-body {
   padding: var(--spacer);
+  position: relative;
+}
+
+.new-task-creator .create {
+  color: var(--clr-primary);
 }
 
 [type="checkbox"] {
@@ -245,5 +262,19 @@ form {
           transform: scaleX(1);
   -webkit-transform-origin: left;
           transform-origin: left;
+}
+
+.delete-stuff {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: -35px;
+  color: var(--clr-light);
 }
 /*# sourceMappingURL=WeeklyAssignmentPrab2MainPage.css.map */

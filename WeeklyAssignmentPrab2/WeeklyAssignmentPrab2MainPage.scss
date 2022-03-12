@@ -78,7 +78,15 @@ form{
     }
 }
 
+.btn.delete{
+    opacity: 0.7;
+    font-size: 1rem;
+    transition: color 250ms ease-in;
+}
 
+.btn.delete:hover{
+    color: var(--clr-warning);
+}
 
 .new{
     background: transparent;
@@ -87,6 +95,7 @@ form{
     border-bottom: 1px solid currentColor;
     font-size: inherit;
     outline: none;
+    padding: 0.25em;
 
     transition: border-bottom 150ms ease-in;
     order: 2;
@@ -135,6 +144,11 @@ form{
 
 .todo-body{
     padding: var(--spacer);
+    position: relative;
+}
+
+.new-task-creator .create {
+    color: var(--clr-primary);
 }
 
 [type="checkbox"] {
@@ -211,4 +225,17 @@ form{
     transform: scaleX(1);
     transform-origin: left;
 }
+
+.delete-stuff{
+    display: flex;
+    justify-content: space-evenly;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: -35px;
+    color: var(--clr-light);
+}
+
+
+
 
