@@ -7,24 +7,23 @@
     <link rel="stylesheet" href="WeeklyAssignmentPrab2MainPage.css">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;700;900&display=swap" rel="stylesheet">
     <title>Main Page</title>
+    <script defer src="MainPage.js"></script>
 </head>
 
 <body>
     <h1 class="title">Stuff I need to do</h1>
 
     <div class="all-tasks">
-        <h2 class="task-list-title">My Lists</h2>
+        <h2 class="task-list-title">My lists</h2>
         <ul class="task-list" data-lists>
-            <!--
-                <li class="list-name 
-            active-list">Youtube</li>
+            <!-- <li class="list-name active-list">Youtube</li>
             <li class="list-name">Work</li>
-            <li class="list-name">Grocery</li>
-        -->
+            <li class="list-name">Grocery</li>-->
         </ul>
 
         <form action="" data-new-list-form>
-            <input type="text"
+            <input 
+            type="text"
             class="new list"
             data-new-list-input
             placeholder="new list name"
@@ -93,16 +92,7 @@
             </div>
         </div>
     </div>
-    <template id="task-template">
-        <div class="task">
-            <input type="checkbox"
-            />
-            <label>
-              <span class="custom-checkbox"></span>
-            </label>
-        </div>
-    </template>
+    
 </body>
 <script src="Redirect.js"></script>
-<script src="MainPage.js"></script>
 </html>
