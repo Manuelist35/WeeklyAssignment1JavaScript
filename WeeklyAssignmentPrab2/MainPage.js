@@ -89,9 +89,9 @@ function render() {
     clearElement(listsContainer)
     renderLists()
 
-    const selectedList = lists.find(list => list.id === selectedListId)
-    if (selectedListId == null) {
-      listDisplayContainer.style.display = 'none'
+    const selectedList = lists.find(list => list.id === selectedListId) // In this line we are comparing our current list to see wether it match the selected list id in case this is true we do the things that are witten above The find() method returns the first element in the provided array that satisfies the provided testing function
+    if (selectedListId == null) { // in this line we are telling the computer what to do in case that there's no selected list and what we do in that case is to do not display nothing
+      listDisplayContainer.style.display = 'none' // and here we are displaying nothing by setting the style to none
     } else {
       listDisplayContainer.style.display = ''
       listTitleElement.innerText = selectedList.name
